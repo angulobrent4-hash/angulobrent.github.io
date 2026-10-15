@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brent Renfro T. Angulo - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      background-image: radial-gradient(#d1d5db 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    
+    /* Smooth Transition for Mobile Overlay Menu */
+    .mobile-menu-overlay {
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+      opacity: 0;
+      transform: translateY(-10px);
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .mobile-menu-overlay.open {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-gray-800 flex flex-col justify-between relative">
+
+  <!-- Main Header / Top Bar -->
+  <header class="bg-emerald-900 text-white border-b border-emerald-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Header Title -->
+      <a href="#" onclick="showSection('about')" class="text-2xl font-extrabold tracking-tight text-white hover:text-emerald-200 transition-colors z-50">
+        Personal Portfolio<span class="text-emerald-400">.</span>
+      </a>
+
+      <!-- Desktop Navigation Bar (Only visible on medium and larger screens) -->
+      <nav class="hidden md:flex items-center gap-8 text-base font-medium text-emerald-100">
+        <button onclick="showSection('about')" class="hover:text-white transition-colors">About Me</button>
+        <button onclick="showSection('skills')" class="hover:text-white transition-colors">Skills</button>
+        <button onclick="showSection('education')" class="hover:text-white transition-colors">Education</button>
+        <button onclick="showSection('goals')" class="hover:text-white transition-colors">Goals</button>
+        <button onclick="showSection('contact')" class="hover:text-white transition-colors">Contact Me</button>
+      </nav>
+
+      <!-- Mobile Menu Button (Only visible on small screens) -->
+      <button id="menuToggleBtn" onclick="toggleMenu()" class="md:hidden border border-emerald-400/50 text-white px-5 py-1.5 rounded-lg text-base font-medium hover:bg-emerald-800 transition-all focus:outline-none z-50">
+        Menu
+      </button>
+    </div>
+
+    <!-- Mobile Full-Width Dropdown Overlay Menu -->
+    <div id="mobileOverlay" class="mobile-menu-overlay absolute top-full left-0 w-full bg-emerald-900 border-b border-emerald-800 shadow-2xl md:hidden z-40">
+      <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col">
+        <button onclick="showSection('about')" class="text-left text-lg font-semibold text-emerald-50 hover:text-white py-3 border-b border-emerald-800/80 transition-colors">
+          About Me
+        </button>
+        <button onclick="showSection('skills')" class="text-left text-lg font-semibold text-emerald-50 hover:text-white py-3 border-b border-emerald-800/80 transition-colors">
+          Skills
+        </button>
+        <button onclick="showSection('education')" class="text-left text-lg font-semibold text-emerald-50 hover:text-white py-3 border-b border-emerald-800/80 transition-colors">
+          Education
+        </button>
+        <button onclick="showSection('goals')" class="text-left text-lg font-semibold text-emerald-50 hover:text-white py-3 border-b border-emerald-800/80 transition-colors">
+          Goals
+        </button>
+        <button onclick="showSection('contact')" class="text-left text-lg font-semibold text-emerald-50 hover:text-white py-3 transition-colors">
+          Contact Me
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Section Title Banner -->
+  <div class="bg-emerald-700 text-white py-8 shadow-inner">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 id="currentBannerTitle" class="text-3xl md:text-4xl font-light tracking-wide uppercase">ABOUT ME</h2>
+      
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full flex flex-col items-center justify-start">
+
+    <!-- About Me Section -->
+    <section id="section-about" class="content-section w-full bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all">
+      <div class="border-b border-gray-100 pb-3 mb-4">
+        <h3 class="text-xl font-bold text-gray-800">About Me</h3>
+      </div>
+      <p class="text-gray-600 leading-relaxed text-base">
+        Hi! My name is <strong class="text-gray-800 font-semibold">Brent Renfro T. Angulo</strong>, currently enrolled as a Bachelor of Science student at <span class="text-emerald-700 font-medium">Catanduanes State University</span>. This here is my personal portfolio to show my current skill level &amp; my progress as a Computer Science student.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="section-skills" class="content-section w-full bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all hidden">
+      <div class="border-b border-gray-100 pb-3 mb-6">
+        <h3 class="text-xl font-bold text-gray-800">Skills</h3>
+      </div>
+
+      <div class="space-y-6">
+        <!-- C Language -->
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200/80">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 bg-emerald-700 text-white font-bold text-sm rounded">C</span>
+            <h4 class="font-bold text-gray-800">C Programming Language</h4>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            <strong class="text-gray-700">Fundamentals:</strong> Problem analysis, Designing Algorithm, Creating Flowcharts, code implementation, basic programming.
+          </p>
+        </div>
+
+        <!-- C++ Language -->
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200/80">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 bg-emerald-700 text-white font-bold text-sm rounded">C++</span>
+            <h4 class="font-bold text-gray-800">C++ Programming Language</h4>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Object-oriented programming, Fundamental Data Structures &amp; algorithm, &amp; problem solving.
+          </p>
+        </div>
+
+        <!-- Java Language -->
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200/80">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 bg-emerald-700 text-white font-bold text-sm rounded">Java</span>
+            <h4 class="font-bold text-gray-800">Java Programming Language</h4>
+          </div>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Object-oriented programming (Inheritance, Polymorphism, Abstraction, Encapsulation).
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="section-education" class="content-section w-full bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all hidden">
+      <div class="border-b border-gray-100 pb-3 mb-6">
+        <h3 class="text-xl font-bold text-gray-800">Education</h3>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-4 rounded-lg bg-emerald-50/50 border border-emerald-100">
+          <h4 class="font-bold text-gray-800 text-lg">Catanduanes State University</h4>
+          <p class="text-emerald-800 font-medium text-sm">Bachelor of Science in Computer Science</p>
+          <p class="text-gray-500 text-xs mt-1">Currently Enrolled</p>
+        </div>
+
+        <div class="p-4 rounded-lg bg-gray-50 border border-gray-200/80">
+          <h4 class="font-bold text-gray-800 text-lg">San Miguel Rural Development High School</h4>
+          <p class="text-gray-600 font-medium text-sm">High School Graduate</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="section-goals" class="content-section w-full bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all hidden">
+      <div class="border-b border-gray-100 pb-3 mb-6">
+        <h3 class="text-xl font-bold text-gray-800">Goals</h3>
+      </div>
+
+      <ul class="space-y-3">
+        <li class="p-3.5 rounded-lg bg-gray-50 border border-gray-100 text-gray-700 font-medium">
+          Graduate in my course.
+        </li>
+        <li class="p-3.5 rounded-lg bg-gray-50 border border-gray-100 text-gray-700 font-medium">
+          Get a stable job and provide for my family.
+        </li>
+        <li class="p-3.5 rounded-lg bg-gray-50 border border-gray-100 text-gray-700 font-medium">
+          Become a software developer.
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section id="section-contact" class="content-section w-full bg-white rounded-xl shadow-sm border border-gray-100 p-6 md:p-8 hover:shadow-md transition-all hidden">
+      <div class="border-b border-gray-100 pb-3 mb-6">
+        <h3 class="text-xl font-bold text-gray-800">Contact Me</h3>
+      </div>
+
+      <div class="space-y-4 text-gray-600">
+        <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+          <p class="text-xs text-gray-400 font-medium">Email Address</p>
+          <a href="mailto:angulobrent4@gmail.com" class="text-emerald-700 font-semibold hover:underline">angulobrent4@gmail.com</a>
+        </div>
+
+        <div class="p-3 rounded-lg bg-gray-50 border border-gray-100">
+          <p class="text-xs text-gray-400 font-medium">Facebook Profile</p>
+          <a href="https://facebook.com/brentangulo" target="_blank" rel="noopener noreferrer" class="text-emerald-700 font-semibold hover:underline">facebook.com/brentangulo</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-gray-800 text-gray-400 py-6 text-center text-sm mt-auto">
+    <div class="max-w-4xl mx-auto px-4">
+      <p>&copy; 2026 Brent Renfro T. Angulo. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    let isMenuOpen = false;
+
+    /* Mobile Overlay Menu toggle functionality */
+    function toggleMenu() {
+      const menu = document.getElementById('mobileOverlay');
+      const btn = document.getElementById('menuToggleBtn');
+      isMenuOpen = !isMenuOpen;
+
+      if (isMenuOpen) {
+        menu.classList.add('open');
+        btn.textContent = 'Close';
+      } else {
+        menu.classList.remove('open');
+        btn.textContent = 'Menu';
+      }
+    }
+
+    /* Tab and section display logic */
+    function showSection(sectionId) {
+      // Hide all content sections
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(sec => sec.classList.add('hidden'));
+
+      // Show selected section
+      const targetSection = document.getElementById(`section-${sectionId}`);
+      if (targetSection) {
+        targetSection.classList.remove('hidden');
+      }
+
+      // Update banner heading text
+      const bannerTitle = document.getElementById('currentBannerTitle');
+      const titles = {
+        'about': 'ABOUT ME',
+        'skills': 'SKILLS',
+        'education': 'EDUCATION',
+        'goals': 'GOALS',
+        'contact': 'CONTACTS'
+      };
+      if (bannerTitle && titles[sectionId]) {
+        bannerTitle.textContent = titles[sectionId];
+      }
+
+      // Close mobile overlay if open
+      if (isMenuOpen) {
+        toggleMenu();
+      }
+
+      // Scroll to top smooth
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+</body>
+    </html>
+  
